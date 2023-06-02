@@ -10,6 +10,7 @@ import Fifo from "../fifo";
 import useFifo from "../../hooks/fifoHook";
 import ActionJson from "../../config/actions.json";
 import FifoElementsJson from "../../config/fifoElements.json";
+import { TWENTY_FOUR_HOURS, TWO_MINUTES } from "../../config/timeConstants";
 
 jest.useFakeTimers();
 
@@ -324,7 +325,7 @@ describe("Fifo component unit test", () => {
         result.current.addFifoElement("A");
         result.current.addFifoElement("A");
 
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       const fifoElementsAfter = result.current.fifoElements;
@@ -376,9 +377,9 @@ describe("Fifo component unit test", () => {
         result.current.addFifoElement("A");
         result.current.addFifoElement("A");
 
-        jest.advanceTimersByTime(2 * 60 * 1000);
-        jest.advanceTimersByTime(2 * 60 * 1000);
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
+        jest.advanceTimersByTime(TWO_MINUTES);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       const fifoElementsAfter = result.current.fifoElements;
@@ -420,20 +421,20 @@ describe("Fifo component unit test", () => {
         result.current.addFifoElement("A");
         result.current.addFifoElement("A");
         result.current.addFifoElement("A");
-        jest.advanceTimersByTime(2 * 60 * 1000);
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
+        jest.advanceTimersByTime(TWO_MINUTES);
         result.current.addFifoElement("B");
         result.current.addFifoElement("B");
         result.current.addFifoElement("C");
-        jest.advanceTimersByTime(2 * 60 * 1000);
-        jest.advanceTimersByTime(2 * 60 * 1000);
-        jest.advanceTimersByTime(2 * 60 * 1000);
-        jest.advanceTimersByTime(2 * 60 * 1000);
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
+        jest.advanceTimersByTime(TWO_MINUTES);
+        jest.advanceTimersByTime(TWO_MINUTES);
+        jest.advanceTimersByTime(TWO_MINUTES);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       act(() => {
-        jest.advanceTimersByTime(24 * 60 * 60 * 1000 - 14 * 60 * 1000);
+        jest.advanceTimersByTime(TWENTY_FOUR_HOURS - 7 * TWO_MINUTES);
       });
 
       const fifoElementsAfter = result.current.fifoElements;
@@ -492,7 +493,7 @@ describe("Fifo component e2e", () => {
       );
 
       act(() => {
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       const fifoElementsHtml = screen.getAllByTestId(/^fifo-element-/);
@@ -515,7 +516,7 @@ describe("Fifo component e2e", () => {
       );
 
       act(() => {
-        jest.advanceTimersByTime(2 * 60 * 1000 - 1000);
+        jest.advanceTimersByTime(TWO_MINUTES - 1000);
       });
 
       let fifoElementsHtml = screen.getAllByTestId(/^fifo-element-/);
@@ -539,7 +540,7 @@ describe("Fifo component e2e", () => {
       );
 
       act(() => {
-        jest.advanceTimersByTime(24 * 60 * 60 * 1000);
+        jest.advanceTimersByTime(TWENTY_FOUR_HOURS);
       });
 
       initialFifoElements.forEach((fifoElement, index) => {
@@ -570,7 +571,7 @@ describe("Fifo component e2e", () => {
       );
 
       act(() => {
-        jest.advanceTimersByTime(24 * 60 * 60 * 1000 - 1000);
+        jest.advanceTimersByTime(TWENTY_FOUR_HOURS - 1000);
       });
 
       initialFifoElements.forEach((fifoElement, index) => {
@@ -653,7 +654,7 @@ describe("Fifo component e2e", () => {
       fireEvent.click(buttonA);
 
       act(() => {
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       let fifoElementsHtml = screen.getAllByTestId(/^fifo-element-/);
@@ -677,15 +678,15 @@ describe("Fifo component e2e", () => {
       );
 
       act(() => {
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       act(() => {
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       act(() => {
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        jest.advanceTimersByTime(TWO_MINUTES);
       });
 
       let fifoElementsHtml = screen.getAllByTestId(/^fifo-element-/);

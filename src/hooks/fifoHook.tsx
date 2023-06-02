@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FifoDashboardElementType } from "../types/fifoDashboardElementType";
+import { TWENTY_FOUR_HOURS, TWO_MINUTES } from "../config/timeConstants";
 
 export const useFifo = (
   initialActions: FifoDashboardElementType[],
@@ -61,13 +62,13 @@ export const useFifo = (
   };
 
   useEffect(() => {
-    const timer = setInterval(() => calculateCredits(), 24 * 60 * 60 * 1000);
+    const timer = setInterval(() => calculateCredits(), TWENTY_FOUR_HOURS);
 
     return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => performAction(actions), 2 * 60 * 1000);
+    const timer = setInterval(() => performAction(actions), TWO_MINUTES);
 
     return () => clearInterval(timer);
   }, [actions]);
