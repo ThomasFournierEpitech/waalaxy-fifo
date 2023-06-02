@@ -18,6 +18,7 @@ export const useFifo = (
   ) =>
     queueElement.find((actionId) => {
       const filteredAction = actions.find((action) => action.id === actionId);
+
       if (!filteredAction || filteredAction.credit === 0) {
         return false;
       }
@@ -26,22 +27,23 @@ export const useFifo = (
 
   const decreaseActionCreditByActionId = (actionId: String) => {
     setActions((prevActions) => {
-      const updatedActions = prevActions.map((prevAction) =>
+      return prevActions.map((prevAction) =>
         prevAction.id === actionId
           ? { ...prevAction, credit: prevAction.credit - 1 }
           : prevAction
       );
-      return updatedActions;
     });
   };
 
   const calculateCredits = () =>
     setActions((prevActions) =>
       prevActions.map((action: any) => {
-        const randomCredits = Math.floor(
-          Math.random() * (action.maxCredit * 0.2) + action.maxCredit * 0.8
-        );
-        return { ...action, credit: randomCredits };
+        return {
+          ...action,
+          credit: Math.floor(
+            Math.random() * (action.maxCredit * 0.2) + action.maxCredit * 0.8
+          ),
+        };
       })
     );
 
