@@ -16,7 +16,7 @@ et l'état initiale de la Fifo est configurable depuis
 
 
 
-## Installation
+# Installation
 
 ```bash
 $ npm install
@@ -24,7 +24,7 @@ $ cd frontend && npm install && cd -
 
 ```
 
-## Running the app
+# Running the app
 
 ```bash
 # development
@@ -32,7 +32,7 @@ $ npm run start
 
 ```
 
-## Running the app
+# Running the app
 
 ```bash
 # unit test
@@ -40,10 +40,10 @@ $ npm run test
 
 ```
 
-## NOTE
+# NOTE
 N'étant pas très familier avec les monorepos, j'ai un peu bidouillé les package.json pour que les commandes npm run start et npm run test installent les dépendances et lancent les applications frontend et backend.
 
-## Features
+# Features
 
 - Gestion des timers coté serveur
 - Call API HTTP (Get, Post) pour récupérer l'état de la FIFO au moment de la connexion du client
@@ -59,10 +59,10 @@ N'étant pas très familier avec les monorepos, j'ai un peu bidouillé les packa
 - Check des données envoyé par le client via validation des DTO
 - Projet structuré par module
 
-## Env
-# environnement par défault
+# Env
 
 
+### Default
 ```bash
 /root/app/test-walaaxy/waalaxy-fifo/fifo/.env
 PORT=3001
