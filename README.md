@@ -20,11 +20,16 @@ $ npm run start
 
 ```
 
-## Test
+## Running the app
 
 ```bash
-# unit tests
+# unit test
 $ npm run test
 
-##  NOTE
+```
+
+## NOTE
 N'étant pas très famillier avec les monorepos, j'ai un peu bidouillé les package.json pour que les commandes npm run start et npm run test lance install les dependance et lance les paplication frontend et backend.
+
+
+
