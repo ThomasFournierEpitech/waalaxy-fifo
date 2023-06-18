@@ -59,5 +59,17 @@ N'étant pas très familier avec les monorepos, j'ai un peu bidouillé les packa
 - Check des données envoyé par le client via validation des DTO
 - Projet structuré par module
 
+## Env
+# environnement par défault
 
 
+```bash
+/root/app/test-walaaxy/waalaxy-fifo/fifo/.env
+PORT=3001
+```
+
+```bash
+
+/root/app/test-walaaxy/waalaxy-fifo/fifo/frontend/.env
+REACT_APP_BACKEND_URL='http://localhost:3001'
+```
