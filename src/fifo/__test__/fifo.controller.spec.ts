@@ -4,7 +4,7 @@ import { FifoService } from '../fifo.service';
 import { FifoElementDto } from '../dtos/fifo.dto';
 import { FifoDashboardElement } from '../../shared/fifo.type';
 import { FifoValidationService } from '../fifo-validation/fifo-validation.service';
-import { FifoRepository } from '../fifo-repository/fifo.repository.service';
+import { FifoRepository } from '../fifo.repository.service';
 import { FifoGateway } from '../fifo.gateway';
 
 describe('FifoController', () => {

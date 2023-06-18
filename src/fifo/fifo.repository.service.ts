@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { FifoDashboardElement } from '../../shared/fifo.type';
-import { FifoValidationService } from '../fifo-validation/fifo-validation.service';
+import { FifoDashboardElement } from '../shared/fifo.type';
+import { FifoValidationService } from './fifo-validation/fifo-validation.service';
 
 @Injectable()
 export class FifoRepository {

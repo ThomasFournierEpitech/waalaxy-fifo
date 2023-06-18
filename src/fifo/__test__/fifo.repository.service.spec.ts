@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FifoRepository } from '../fifo.repository.service';
-import { FifoValidationService } from '../../fifo-validation/fifo-validation.service';
-import { FifoService } from '../../fifo.service';
-import { FifoGateway } from '../../fifo.gateway';
+import { FifoValidationService } from '../fifo-validation/fifo-validation.service';
+import { FifoService } from '../fifo.service';
+import { FifoGateway } from '../fifo.gateway';
 
 describe('FifoRepository', () => {
   let repository: FifoRepository;

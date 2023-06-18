@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { FifoService } from '../fifo.service';
 import { FifoValidationService } from '../fifo-validation/fifo-validation.service';
-import { FifoRepository } from '../fifo-repository/fifo.repository.service';
+import { FifoRepository } from '../fifo.repository.service';
 import { FifoEventsEnum } from '../../shared/fifo.type';
 import {
   TWENTY_FOUR_HOURS,

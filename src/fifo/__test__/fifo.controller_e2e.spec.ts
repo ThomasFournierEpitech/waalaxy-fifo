@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { FifoController } from '../fifo.controller';
 import { FifoService } from '../fifo.service';
 import { FifoElementDto } from '../dtos/fifo.dto';
-import { FifoRepository } from '../fifo-repository/fifo.repository.service';
+import { FifoRepository } from '../fifo.repository.service';
 import { FifoGateway } from '../fifo.gateway';
 import * as request from 'supertest';
 import { AppModule } from '../../app.module';

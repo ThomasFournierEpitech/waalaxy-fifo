@@ -11,7 +11,7 @@ import {
   FifoPayloadRefund,
 } from '../shared/fifo.type';
 import { TWENTY_FOUR_HOURS, TWO_MINUTES } from '../shared/config/timeConstants';
-import { FifoRepository } from './fifo-repository/fifo.repository.service';
+import { FifoRepository } from './fifo.repository.service';
 import { FifoGateway } from './fifo.gateway';
 
 @Injectable()
