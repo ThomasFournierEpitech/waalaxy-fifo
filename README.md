@@ -29,7 +29,7 @@ $ npm run test
 ```
 
 ## NOTE
-N'étant pas très famillier avec les monorepos, j'ai un peu bidouillé les package.json pour que les commandes npm run start et npm run test lance install les dependance et lance les paplication frontend et backend.
+N'étant pas très familier avec les monorepos, j'ai un peu bidouillé les package.json pour que les commandes npm run start et npm run test installent les dépendances et lancent les applications frontend et backend.
 
 
 
