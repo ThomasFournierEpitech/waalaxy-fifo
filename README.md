@@ -62,14 +62,13 @@ N'étant pas très familier avec les monorepos, j'ai un peu bidouillé les packa
 # Env
 
 
-### Default
 ```bash
-/root/app/test-walaaxy/waalaxy-fifo/fifo/.env
+# Default Backend
+/.env
 PORT=3001
-```
 
-```bash
-
-/root/app/test-walaaxy/waalaxy-fifo/fifo/frontend/.env
+# Default Frontend
+/frontend/.env
 REACT_APP_BACKEND_URL='http://localhost:3001'
 ```
+
