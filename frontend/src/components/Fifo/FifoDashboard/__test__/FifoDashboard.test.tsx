@@ -1,10 +1,9 @@
-import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import FifoDashboard from '../FifoDashboard.component';
 
 describe('FifoDashboard e2e', () => {
   it('should render the component when actions are empty', () => {
-    render(<FifoDashboard actions={[]} addFifoElement={() => {}} />);
+    render(<FifoDashboard actions={[]} addFifoElement={jest.fn()} />);
     const titleElement = screen.getByTestId('fifo-action-dashboard');
     expect(titleElement).toBeInTheDocument();
   });
@@ -16,7 +15,7 @@ describe('FifoDashboard e2e', () => {
       { id: 'C', maxCredit: 30, credit: 30 },
     ];
 
-    render(<FifoDashboard actions={mockActions} addFifoElement={() => {}} />);
+    render(<FifoDashboard actions={mockActions} addFifoElement={jest.fn()} />);
     const actionButtons = screen.getAllByRole('button');
     expect(actionButtons).toHaveLength(3);
   });

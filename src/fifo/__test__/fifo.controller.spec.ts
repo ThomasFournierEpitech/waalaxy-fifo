@@ -57,7 +57,6 @@ describe('FifoController', () => {
       expect(fifoService.addFifoQueueElement).toHaveBeenCalledWith('A');
     });
   });
-
   describe('getActions', () => {
     it('should return the actions', () => {
       //Arrange

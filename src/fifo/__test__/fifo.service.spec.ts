@@ -8,6 +8,7 @@ import {
   TWO_MINUTES,
 } from '../../shared/config/timeConstants';
 import { FifoGateway } from '../fifo.gateway';
+import { FifoController } from '../fifo.controller';
 
 let fifoService: FifoService;
 let fifoRepository: FifoRepository;
@@ -31,6 +32,7 @@ beforeEach(async () => {
       },
       FifoGateway,
     ],
+    controllers: [FifoController],
   }).compile();
   fifoService = moduleRef.get<FifoService>(FifoService);
   fifoGateway = moduleRef.get<FifoGateway>(FifoGateway);
@@ -449,7 +451,7 @@ describe('getActions', () => {
 });
 
 describe('handlePerformAction', () => {
-  it('should perform the action, emit the PERFORM_ACTION event, and update SSE', () => {
+  it('should call perform action and emit the PERFORM_ACTION event', () => {
     // Arrange
     const fifoQueue = ['A', 'B', 'C'];
     const actions = [

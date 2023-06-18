@@ -6,7 +6,6 @@ import { FifoRepository } from './fifo-repository/fifo.repository.service';
 import { initialeActions } from '../shared/config/initialActions';
 import { initialeFifoElements } from '../shared/config/initialFifoElements';
 import { FifoValidationModule } from './fifo-validation/fifo-validation.module';
-import { FifoRepositoryModule } from './fifo-repository/fifo-repository.module';
 import { FifoGateway } from './fifo.gateway';
 
 @Module({
@@ -26,6 +25,6 @@ import { FifoGateway } from './fifo.gateway';
     },
     FifoGateway,
   ],
-  imports: [FifoValidationModule, FifoRepositoryModule],
+  imports: [FifoValidationModule],
 })
 export class FifoModule {}

@@ -17,10 +17,11 @@ export const useFifo = (
   const [fifoElements, setFifoElements] = useState<string[]>([]);
   const [isConnected, setIsConnected] = useState(false);
 
-  const addFifoElement = async (fifoElement: string) => {
+  const addFifoElement = async (fifoElement: string, signal?: AbortSignal) => {
     const result = await fifoService.postFifoQueueElement(
       fifoElement,
       setFifoAlerts,
+      signal,
     );
     if (result.data)
       setFifoElements((prevFifoElements) => [...prevFifoElements, fifoElement]);
@@ -29,11 +30,13 @@ export const useFifo = (
   useEffect(() => {
     const loadInitialData = async () => {
       const abortController = new AbortController();
-      const resultActions = await fifoService.getAction(abortController);
+      const resultActions = await fifoService.getAction(abortController.signal);
       if (resultActions.data) {
         setActions(resultActions.data);
       }
-      const resultFifoQueue = await fifoService.getFifoQueue(abortController);
+      const resultFifoQueue = await fifoService.getFifoQueue(
+        abortController.signal,
+      );
       if (resultFifoQueue.data) {
         setFifoElements(resultFifoQueue.data);
       }

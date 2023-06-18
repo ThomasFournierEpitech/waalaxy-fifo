@@ -50,55 +50,73 @@ class FifoService {
   };
 
   getAction = async (
-    abordController: AbortController,
+    signal: AbortSignal,
     setFifoAlerts?: any,
   ): Promise<HttpResponse> => {
     try {
-      const response = await fetch('http://localhost:3001/fifo/actions', {
-        method: 'Get',
-        signal: abordController.signal,
-      });
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + '/fifo/actions',
+        {
+          method: 'Get',
+          signal: signal,
+        },
+      );
+
       return this.handleResponse(response, setFifoAlerts);
-    } catch (_) {
+    } catch (error: any) {
+      if (error?.name === 'AbortError')
+        return { data: undefined, errorMessage: 'Requète annulée' };
       return this.handleFailRequest(setFifoAlerts);
     }
   };
   getFifoQueue = async (
-    abordController: AbortController,
+    signal: AbortSignal,
     setFifoAlerts?: any,
   ): Promise<HttpResponse> => {
     try {
-      const response = await fetch('http://localhost:3001/fifo/fifoQueue', {
-        method: 'Get',
-        signal: abordController.signal,
-      });
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + '/fifo/fifoQueue',
+        {
+          method: 'Get',
+          signal: signal,
+        },
+      );
       return this.handleResponse(response, setFifoAlerts);
-    } catch (_) {
+    } catch (error: any) {
+      if (error?.name === 'AbortError')
+        return { data: undefined, errorMessage: 'Requète annulée' };
       return this.handleFailRequest(setFifoAlerts);
     }
   };
   postFifoQueueElement = async (
     fifoElement: string,
     setFifoAlerts?: any,
+    signal?: AbortSignal,
   ): Promise<HttpResponse> => {
     try {
       const data = {
         fifoElement: fifoElement,
       };
-      const response = await fetch('http://localhost:3001/fifo/fifoElement', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + '/fifo/fifoElement',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+          signal: signal,
         },
-        body: JSON.stringify(data),
-      });
+      );
 
       return this.handleResponse(
         response,
         setFifoAlerts,
         `L'action ${fifoElement} à bien été rajoutée`,
       );
-    } catch (_) {
+    } catch (error: any) {
+      if (error?.name === 'AbortError')
+        return { data: undefined, errorMessage: 'Requète annulée' };
       return this.handleFailRequest(setFifoAlerts);
     }
   };

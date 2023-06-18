@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FifoAlert } from '../../../hooks/fifoAlert.hook';
 
 interface FifoAlertSidebarProps {

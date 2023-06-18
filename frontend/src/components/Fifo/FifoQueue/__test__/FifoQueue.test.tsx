@@ -10,4 +10,3 @@ describe('FifoQueue e2e', () => {
     expect(component).toBeInTheDocument();
   });
 });
-export {};
